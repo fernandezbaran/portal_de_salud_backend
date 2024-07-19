@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="{% static 'portal_de_salud/img/logo.png' %}">
+  <title>Portal de Salud - Inicio</title>
+<style>
+    #journalResults {
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .journal-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f5f5f5;
+    }
+
+    .loading-spinner {
+      display: none;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <link rel="stylesheet" href="{% static 'portal_de_salud/css/style.css'%}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1><img src="{% static 'portal_de_salud/img/logo.png' %}" style="width:10%"> Portal de Salud</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/profesionales">Profesionales</a></li>
+        <li><a href="/contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <p align="center"><img src="{% static 'portal_de_salud/img/round.jpeg' %}" style="width:20%" class="rounded-image"></p> 
+      <h2>Bienvenido al Portal de Salud</h2>
+     <p> <blockquote class="quote">La salud ubicua o uHealth es un paradigma emergente, la
+persistencia del sistema de salud más allá del instrumento
+que se utilice para acceder a él, del sistema de información
+y de la tecnología que gestiona esta información, la
+posibilidad de acceder a los servicios del sistema de salud
+virtualmente desde cualquier lugar: consultas, alertas,
+recordatorios, información, monitorización, registro de
+datos y retroalimentación.</blockquote></p>
+<p><blockquote class="turno">El presente trabajo, desarrollado por alumnos del curso python fullstack del programa codo a codo constituye un ejercicio de diseño y desarrollo de una interfaz web como prototipo de portal de salud.
+
+
+
+</blockquote></p>
+
+<p><blockquote class="articulo">
+A continuación se lista una serie de publicacones científicas en las cuales obtener mas información acerca de los portales de salud y su rol en la revolución digitial que atraviesa el rubro. La misma fue obentida utilizando una implementación en javascript de la api REST de Crossref, la cual es pública y no precisa de niguna clave. Se añade una animación de carga según lo consignado:
+
+<div class="loading-spinner"></div>
+<div id="journalResults"></div></blockquote></p>
+
+</section>
+  </main>
+<script>
+window.onload = function() {
+  const searchTerm = 'eHealth'; // Predefined search term
+  const apiUrl = `https://api.crossref.org/journals?query=${searchTerm}`;
+  const loadingSpinner = document.querySelector('.loading-spinner');
+  const journalResults = document.getElementById('journalResults');
+
+  // Show the loading spinner
+  loadingSpinner.style.display = 'block';
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      // Hide the loading spinner
+      loadingSpinner.style.display = 'none';
+
+      journalResults.innerHTML = '';
+
+      data.message.items.forEach(journal => {
+        const journalElement = document.createElement('div');
+        journalElement.classList.add('journal-item');
+        journalElement.innerHTML = `
+          <h3>${journal.title}</h3>
+          <p>ISSN: ${journal.ISSN.join(', ')}</p>
+          <p>Publisher: ${journal.publisher}</p>
+          <p>Subject Areas: ${journal.subject}</p>
+        `;
+        journalResults.appendChild(journalElement);
+      });
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Hide the loading spinner
+      loadingSpinner.style.display = 'none';
+      journalResults.innerHTML = '<p>Error: Unable to fetch journal data.</p>';
+    });
+};
+</script>
+  <footer>
+    <p>&copy; 2024 Portal de Salud. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

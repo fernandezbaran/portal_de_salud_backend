@@ -1,0 +1,31 @@
+<!DOCTYPE html> <html lang="es"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Portal de Salud - Contacto</title> 
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="../images/logo.png">
+<link rel="stylesheet" href="../css/styles.css"> <style> .invalid { border-color: red; background-color: #ffdddd; } </style> </head> <body> <header> <h1><img src="../images/logo.png" style="width:10%"> Portal de Salud</h1> <nav> <ul> <li><a href="../index.html">Inicio</a></li> <li><a href="./servicios.html">Servicios</a></li> <li><a href="./profesionales.html">Profesionales</a></li> <li><a href="./contacto.html">Contacto</a></li> </ul> </nav> </header> <main> <section> <h2>Contacto</h2> <form id="contactForm" action="submit.php" method="POST"> <label for="nombre">Nombre:</label> <input type="text" id="nombre" name="nombre" required>
+routeros
+Copy
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" required>
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje" required></textarea>
+
+    <label for="suscripcion">Suscribirse al boletín:</label>
+    <input type="checkbox" id="suscripcion" name="suscripcion">
+
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+</main> <footer> <p>&copy; 2024 Portal de Salud. Todos los derechos reservados.</p> </footer> 
+
+<script> const form = document.getElementById('contactForm'); const nombreInput = document.getElementById('nombre'); const emailInput = document.getElementById('email'); const telefonoInput = document.getElementById('telefono'); const mensajeInput = document.getElementById('mensaje'); const suscripcionInput = document.getElementById('suscripcion'); form.addEventListener('submit', function(event) { event.preventDefault(); // Evita que el formulario se envíe automáticamente // Validar los campos let isValid = true; if (nombreInput.value.trim() === '') { isValid = false; nombreInput.classList.add('invalid'); } else { nombreInput.classList.remove('invalid'); } if (!isValidEmail(emailInput.value)) { isValid = false; emailInput.classList.add('invalid'); } else { emailInput.classList.remove('invalid'); } if (telefonoInput.value.trim() === '') { isValid = false; telefonoInput.classList.add('invalid'); } else { telefonoInput.classList.remove('invalid'); } if (mensajeInput.value.trim() === '') { isValid = false; mensajeInput.classList.add('invalid'); } else { mensajeInput.classList.remove('invalid'); } // Enviar el formulario si todos los campos son válidos if (isValid) { form.submit(); } }); function isValidEmail(email) { const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; return emailRegex.test(email); } </script> </body> </html>

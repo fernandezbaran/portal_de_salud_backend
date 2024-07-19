@@ -1,0 +1,184 @@
+/* Estilos generales */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+
+blockquote.quote {
+  font: font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  padding-left: 70px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-right: 10px;
+  background-color: #dadada;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 5px;
+  background-image: url(../images/openquote4.gif);
+  background-position: middle left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+}
+
+blockquote.articulo {
+  font: font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  padding-left: 70px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-right: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 5px;
+  background-image: url(../images/articulo.png);
+  background-position: middle left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+}
+
+blockquote.turno {
+  font: font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  padding-left: 70px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-right: 10px;
+  background-color: #FBFF70;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 5px;
+  background-image: url(../images/turno.png);
+  background-position: middle left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+}
+
+
+blockquote.medicamentos {
+  font: font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  padding-left: 70px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-right: 10px;
+  background-color: #F1B2C5;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 5px;
+  background-image: url(../images/medicamentos.png);
+  background-position: middle left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+}
+
+blockquote.imagenes {
+  font: font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  padding-left: 70px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-right: 10px;
+  background-color: #95EEE3;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 5px;
+  background-image: url(../images/imagenes.png);
+  background-position: middle left;
+  background-repeat: no-repeat;
+  text-indent: 23px;
+}
+
+
+.rounded-image {
+  border-radius: 50%;
+  width:;
+  height:;
+  object-fit: cover;
+}
+
+.aligncenter {
+    text-align: center;
+}
+
+body {
+  font-family: font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/background.jpeg");
+}
+
+header {
+  background-color: #2D505D;
+  color: #fff;
+  padding: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  background-color: #2D505D;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilos específicos para cada página */
+section {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+form button {
+  background-color: #2D505D;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 768px) {
+  /* Estilos para tablet */
+  main {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  /* Estilos para PC */
+  main {
+    max-width: 992px;
+    margin: 0 auto;
+  }
+}
